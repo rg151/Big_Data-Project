@@ -1,0 +1,1 @@
+load data inpath '/user/talentum/zomato_etl/log/*' into table zomato_summary_log;

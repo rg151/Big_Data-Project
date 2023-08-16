@@ -1,0 +1,5 @@
+set hive.exec.dynamic.partition = true;
+set hive.exec.dynamic.partition.mode=nonstrict;
+
+insert overwrite table ${dbname}.zomato partition (filedate) 
+select *, regexp_extract(split(input__file__name, '_')[2], '([0-9]{9})',1) as filedate from raw_zomato;
